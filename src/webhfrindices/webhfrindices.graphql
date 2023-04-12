@@ -1,0 +1,24 @@
+type Webhfrindex {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateWebhfrindexInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateWebhfrindexInput {
+  id: Int!
+}
+
+type Query {
+  webhfrindices: [Webhfrindex]!
+  webhfrindex(id: Int!): Webhfrindex
+}
+
+type Mutation {
+  createWebhfrindex(createWebhfrindexInput: CreateWebhfrindexInput!): Webhfrindex!
+  updateWebhfrindex(updateWebhfrindexInput: UpdateWebhfrindexInput!): Webhfrindex!
+  removeWebhfrindex(id: Int!): Webhfrindex
+}

@@ -1,0 +1,36 @@
+type Hfriconstituent {
+  id: Int
+  index_id: Int!
+  index_name: String
+  fund_id: Int!
+  fund: String
+  createdAt: String
+  updatedAt: String
+  funds: [Fund!]!
+}
+
+input CreateHfriconstituentInput {
+    index_id: Int!
+    index_name: String
+    fund_id: Int!
+    fund: String
+}
+
+input UpdateHfriconstituentInput {
+    id: Int!
+    index_id: Int!
+    index_name: String
+    fund_id: Int!
+    fund: String
+}
+
+type Query {
+  hfriconstituents: [Hfriconstituent]!
+  hfriconstituent(id: Int!): Hfriconstituent
+}
+
+type Mutation {
+  createHfriconstituent(createHfriconstituentInput: CreateHfriconstituentInput!): Hfriconstituent!
+  updateHfriconstituent(updateHfriconstituentInput: UpdateHfriconstituentInput!): Hfriconstituent!
+  removeHfriconstituent(id: Int!): Hfriconstituent
+}

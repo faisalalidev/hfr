@@ -1,0 +1,24 @@
+type Hfrifwcsince2007 {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateHfrifwcsince2007Input {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateHfrifwcsince2007Input {
+  id: Int!
+}
+
+type Query {
+  hfrifwcsince2007: [Hfrifwcsince2007]!
+  hfrifwcsince2007(id: Int!): Hfrifwcsince2007
+}
+
+type Mutation {
+  createHfrifwcsince2007(createHfrifwcsince2007Input: CreateHfrifwcsince2007Input!): Hfrifwcsince2007!
+  updateHfrifwcsince2007(updateHfrifwcsince2007Input: UpdateHfrifwcsince2007Input!): Hfrifwcsince2007!
+  removeHfrifwcsince2007(id: Int!): Hfrifwcsince2007
+}

@@ -1,0 +1,24 @@
+type Trakkerror {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateTrakkerrorInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateTrakkerrorInput {
+  id: Int!
+}
+
+type Query {
+  trakkerror: [Trakkerror]!
+  trakkerror(id: Int!): Trakkerror
+}
+
+type Mutation {
+  createTrakkerror(createTrakkerrorInput: CreateTrakkerrorInput!): Trakkerror!
+  updateTrakkerror(updateTrakkerrorInput: UpdateTrakkerrorInput!): Trakkerror!
+  removeTrakkerror(id: Int!): Trakkerror
+}

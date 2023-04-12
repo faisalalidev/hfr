@@ -1,0 +1,36 @@
+type Asset {
+    id: Int
+    fund_id: Int!
+    fund: String
+    fund_date: String
+    asset: Float
+    createdAt: String
+    updatedAt: String
+    funds: [Fund!]!
+}
+
+input CreateAssetInput {
+    fund_id: Int!
+    fund: String
+    fund_date: String
+    asset: Float
+}
+
+input UpdateAssetInput {
+    id: Int!
+    fund_id: Int!
+    fund: String
+    fund_date: String
+    asset: Float
+}
+
+type Query {
+  assets: [Asset]!
+  asset(id: Int!): Asset
+}
+
+type Mutation {
+  createAsset(createAssetInput: CreateAssetInput!): Asset!
+  updateAsset(updateAssetInput: UpdateAssetInput!): Asset!
+  removeAsset(id: Int!): Asset
+}

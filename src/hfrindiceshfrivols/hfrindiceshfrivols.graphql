@@ -1,0 +1,24 @@
+type Hfrindiceshfrivol {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateHfrindiceshfrivolInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateHfrindiceshfrivolInput {
+  id: Int!
+}
+
+type Query {
+  hfrindiceshfrivols: [Hfrindiceshfrivol]!
+  hfrindiceshfrivol(id: Int!): Hfrindiceshfrivol
+}
+
+type Mutation {
+  createHfrindiceshfrivol(createHfrindiceshfrivolInput: CreateHfrindiceshfrivolInput!): Hfrindiceshfrivol!
+  updateHfrindiceshfrivol(updateHfrindiceshfrivolInput: UpdateHfrindiceshfrivolInput!): Hfrindiceshfrivol!
+  removeHfrindiceshfrivol(id: Int!): Hfrindiceshfrivol
+}

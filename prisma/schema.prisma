@@ -1,0 +1,846 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Article {
+  id          Int      @id @default(autoincrement())
+  title       String   @unique
+  description String?
+  body        String
+  published   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Assets {
+  id          Int      @id @default(autoincrement())
+  fund_id     Int
+  fund        String
+  fund_date   DateTime
+  asset       Float
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Fund {
+  id                        Int      @id @default(autoincrement())
+  fund_id                   Int
+  fund                      String
+  firm                      String
+  principle                 String
+  address1                  String
+  address2                  String
+  city                      String
+  state                     String
+  zip                       String
+  country                   String
+  phone                     String
+  facsimile                 String
+  contact1                  String
+  contact2                  String
+  structure                 String
+  minimum_investment        Float
+  additional_investment     Float
+  inception_date            DateTime
+  reporting                 String
+  reporting_style           String
+  main_strategy             String
+  sub_strategy              String
+  strategy_description      String
+  leverage                  String
+  fund_assets               Float
+  firm_assets               Float
+  returns_denomination      String
+  management_fee            Float
+  incentive_fee             Float
+  high_watermark            String
+  hurdle_rate               String
+  open_for_investment       String
+  subscriptions             String
+  redemptions               String
+  advance_notice            Float
+  lockup                    String
+  administrator             String
+  auditor                   String
+  audit_date                DateTime
+  individual_account_min    Float
+  fund_assets_as_of         DateTime
+  Firm_assets_as_of         DateTime
+  fund_assets_denomin       String
+  firm_assets_denomin       String
+  sales_fee                 Float
+  other_fees                Float
+  prime_broker              String
+  banking_agent_onshore     String
+  legal_adviser_onshore     String
+  annual_perform_audit      String
+  open_to_investor_type     String
+  firm_id                   Int
+  min_investment_denomin    String
+  offshore_vehicle          String
+  custodian                 String
+  in_hfri                   String
+  in_hfrx                   String
+  regional_investment_focus String
+  in_emerging_markets       String
+  date_added_to_db          DateTime
+  domicile                  String
+  is_diversity_firm         String
+  fund_registration_code    String
+  firm_sec_registered       String
+  firm_sec_number           String
+  firm_iard_crd_number      String
+  strategy_code             Float
+  sub_strategy_code         Float
+  region_inv_focus_code     Float
+  fund_status               String
+  ucitsiii                  String
+  createdAt                 DateTime @default(now())
+  updatedAt                 DateTime @updatedAt
+}
+
+model HFRIConstituents {
+  id            Int      @id @default(autoincrement())
+  index_id      Int
+  index_name    String
+  fund_id       Int
+  fund          String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model HFRXConstituents {
+  id            Int      @id @default(autoincrement())
+  index_id      Int
+  index_name    String
+  fund_id       Int
+  fund          String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Instruments {
+  id                Int      @id @default(autoincrement())
+  fund_id           Int
+  fund              String
+  instrument        String
+  allocation        Float
+  type              String
+  instrument_date   DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model Regions {
+  id                Int      @id @default(autoincrement())
+  fund_id           Int
+  fund              String
+  region            String
+  allocation        Float
+  type              String
+  region_date       DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model Returns {
+  id                Int      @id @default(autoincrement())
+  fund_id           Int
+  fund              String
+  performance       Float
+  nav               Float
+  performance_date  DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model DailyHFRXPerformance {
+  id                Int      @id @default(autoincrement())
+  perf_date         Int
+  index_id          Int
+  index_value       Float
+  percent_dtd       Float
+  percent_mtd       Float
+  percent_ytd       Float
+  percent_itd       Float
+  ticker            String
+  status            Int
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model DailyIndexPerformance {
+  id                Int      @id @default(autoincrement())
+  perf_date         Int
+  index_id          Int
+  index_value       Float
+  percent_dtd       Float
+  percent_mtd       Float
+  percent_ytd       Float
+  percent_itd       Float
+  ticker            String
+  status            Int
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model Dates {
+  id                Int      @id @default(autoincrement())
+  work_date         DateTime
+  posted            Int
+  posted_europe     Int
+  posted_hfrx       Int
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model Features {
+  id                Int      @id @default(autoincrement())
+  feature           String
+  quality           String
+  description       String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model HfrifofSince2007 {
+  id                Int      @id @default(autoincrement())
+  fund_id           String
+  yyyymmm           String
+  strategy_code     Int
+  sub_strategy_code Int
+  ror               Float
+  ending_aum        Float
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model HfrifwcSince2007 {
+  id                Int      @id @default(autoincrement())
+  fund_id           String
+  yyyymmm           String
+  strategy_code     Int
+  sub_strategy_code Int
+  region_inv_focus  Int
+  ror               Float
+  ending_aum        Float
+  diversity         Int
+  country           String
+  beginning_aum     Float
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model HfrIndicesHfra {
+  id                Int      @id @default(autoincrement())
+  index_name        String
+  index_ticker      String
+  ror               Int
+  index_value       Int
+  index_type        String
+  strategy          String
+  substrategy       String
+  regional_investment_focus String
+  denomination      String
+  status            String
+  esma_id           String
+  hfr_fund_id       String
+  perf_record_id    String
+  weighting_style   String
+  fx_type           String
+  work_date         Int
+  performance_date  DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model HfrIndicesHfraDaily {
+  id                Int      @id @default(autoincrement())
+  index_name        String
+  index_ticker      String
+  ror               Int
+  index_value       Int
+  index_type        String
+  strategy          String
+  substrategy       String
+  regional_investment_focus String
+  denomination      String
+  status            String
+  esma_id           String
+  hfr_fund_id       String
+  perf_record_id    String
+  weighting_style   String
+  fx_type           String
+  work_date         Int
+  performance_date  DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model HfrIndicesHfrb {
+  id                Int      @id @default(autoincrement())
+  index_name        String
+  index_ticker      String
+  ror               Int
+  index_value       Int
+  index_type        String
+  strategy          String
+  substrategy       String
+  regional_investment_focus String
+  denomination      String
+  status            String
+  esma_id           String
+  hfr_fund_id       String
+  perf_record_id    String
+  weighting_style   String
+  fx_type           String
+  work_date         Int
+  performance_date  DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model HfrIndicesHfri {
+  id                Int      @id @default(autoincrement())
+  index_name        String
+  index_ticker      String
+  ror               Int
+  index_value       Int
+  index_type        String
+  strategy          String
+  substrategy       String
+  regional_investment_focus String
+  denomination      String
+  status            String
+  esma_id           String
+  hfr_fund_id       String
+  perf_record_id    String
+  weighting_style   String
+  fx_type           String
+  work_date         Int
+  performance_date  DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model HfrIndicesHfriInst {
+  id                Int      @id @default(autoincrement())
+  index_name        String
+  index_ticker      String
+  ror               Int
+  index_value       Int
+  index_type        String
+  strategy          String
+  substrategy       String
+  regional_investment_focus String
+  denomination      String
+  status            String
+  esma_id           String
+  hfr_fund_id       String
+  perf_record_id    String
+  weighting_style   String
+  fx_type           String
+  work_date         Int
+  performance_date  DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model HfrIndicesHfriVols {
+  id                Int      @id @default(autoincrement())
+  index_name        String
+  index_ticker      String
+  ror               Int
+  index_value       Int
+  index_type        String
+  strategy          String
+  substrategy       String
+  regional_investment_focus String
+  denomination      String
+  status            String
+  esma_id           String
+  hfr_fund_id       String
+  perf_record_id    String
+  weighting_style   String
+  fx_type           String
+  work_date         Int
+  performance_date  DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model HfrIndicesHfri500 {
+  id                Int      @id @default(autoincrement())
+  index_name        String
+  index_ticker      String
+  ror               Int
+  index_value       Int
+  index_type        String
+  strategy          String
+  substrategy       String
+  regional_investment_focus String
+  denomination      String
+  status            String
+  esma_id           String
+  hfr_fund_id       String
+  perf_record_id    String
+  weighting_style   String
+  fx_type           String
+  work_date         Int
+  performance_date  DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model HfrIndicesHfrii {
+  id                Int      @id @default(autoincrement())
+  index_name        String
+  index_ticker      String
+  ror               Int
+  index_value       Int
+  index_type        String
+  strategy          String
+  substrategy       String
+  regional_investment_focus String
+  denomination      String
+  status            String
+  esma_id           String
+  hfr_fund_id       String
+  perf_record_id    String
+  weighting_style   String
+  fx_type           String
+  work_date         Int
+  performance_date  DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model HfrIndicesHfriiDaily {
+  id                Int      @id @default(autoincrement())
+  index_name        String
+  index_ticker      String
+  ror               Int
+  index_value       Int
+  index_type        String
+  strategy          String
+  substrategy       String
+  regional_investment_focus String
+  denomination      String
+  status            String
+  esma_id           String
+  hfr_fund_id       String
+  perf_record_id    String
+  weighting_style   String
+  fx_type           String
+  work_date         Int
+  performance_date  DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model HfrIndicesHfrp {
+  id                Int      @id @default(autoincrement())
+  index_name        String
+  index_ticker      String
+  ror               Int
+  index_value       Int
+  index_type        String
+  strategy          String
+  substrategy       String
+  regional_investment_focus String
+  denomination      String
+  status            String
+  esma_id           String
+  hfr_fund_id       String
+  perf_record_id    String
+  weighting_style   String
+  fx_type           String
+  work_date         Int
+  performance_date  DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model HfrIndicesHfrr {
+  id                Int      @id @default(autoincrement())
+  index_name        String
+  index_ticker      String
+  ror               Int
+  index_value       Int
+  index_type        String
+  strategy          String
+  substrategy       String
+  regional_investment_focus String
+  denomination      String
+  status            String
+  esma_id           String
+  hfr_fund_id       String
+  perf_record_id    String
+  weighting_style   String
+  fx_type           String
+  work_date         Int
+  performance_date  DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model HfrIndicesHfrrDaily {
+  id                Int      @id @default(autoincrement())
+  index_name        String
+  index_ticker      String
+  ror               Int
+  index_value       Int
+  index_type        String
+  strategy          String
+  substrategy       String
+  regional_investment_focus String
+  denomination      String
+  status            String
+  esma_id           String
+  hfr_fund_id       String
+  perf_record_id    String
+  weighting_style   String
+  fx_type           String
+  work_date         Int
+  performance_date  DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model HfrIndicesHfru {
+  id                Int      @id @default(autoincrement())
+  index_name        String
+  index_ticker      String
+  ror               Int
+  index_value       Int
+  index_type        String
+  strategy          String
+  substrategy       String
+  regional_investment_focus String
+  denomination      String
+  status            String
+  esma_id           String
+  hfr_fund_id       String
+  perf_record_id    String
+  weighting_style   String
+  fx_type           String
+  work_date         Int
+  performance_date  DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model HfrIndicesHfruDaily {
+  id                Int      @id @default(autoincrement())
+  index_name        String
+  index_ticker      String
+  ror               Int
+  index_value       Int
+  index_type        String
+  strategy          String
+  substrategy       String
+  regional_investment_focus String
+  denomination      String
+  status            String
+  esma_id           String
+  hfr_fund_id       String
+  perf_record_id    String
+  weighting_style   String
+  fx_type           String
+  work_date         Int
+  performance_date  DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model HfrIndicesHfruDailyTest {
+  id                Int      @id @default(autoincrement())
+  index_name        String
+  index_ticker      String
+  ror               Int
+  index_value       Int
+  index_type        String
+  strategy          String
+  substrategy       String
+  regional_investment_focus String
+  denomination      String
+  status            String
+  esma_id           String
+  hfr_fund_id       String
+  perf_record_id    String
+  weighting_style   String
+  fx_type           String
+  work_date         Int
+  performance_date  DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model HfrIndicesHfrx {
+  id                Int      @id @default(autoincrement())
+  index_name        String
+  index_ticker      String
+  ror               Int
+  index_value       Int
+  index_type        String
+  strategy          String
+  substrategy       String
+  regional_investment_focus String
+  denomination      String
+  status            String
+  esma_id           String
+  hfr_fund_id       String
+  perf_record_id    String
+  weighting_style   String
+  fx_type           String
+  work_date         Int
+  performance_date  DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model HfrIndicesHfrxDaily {
+  id                Int      @id @default(autoincrement())
+  index_name        String
+  index_ticker      String
+  ror               Int
+  index_value       Int
+  index_type        String
+  strategy          String
+  substrategy       String
+  regional_investment_focus String
+  denomination      String
+  status            String
+  esma_id           String
+  hfr_fund_id       String
+  perf_record_id    String
+  weighting_style   String
+  fx_type           String
+  work_date         Int
+  performance_date  DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model LkGroup {
+  id                Int      @id @default(autoincrement())
+  uid               Int
+  cid               Int
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model LkUserDoc {
+  id                Int      @id @default(autoincrement())
+  uid               Int
+  doc_id            Int
+  parent_viewable   String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model TrakkerNav {
+  id                Int      @id @default(autoincrement())
+  fund_id           String
+  yyyymmm           String
+  cur_value         Float
+  quarterly         Int
+  fund_status_code  String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model NdxMgrNav {
+  id                Int      @id @default(autoincrement())
+  groupid           Int
+  accountnumber     String
+  work_date         DateTime
+  net_balances      Int
+  allocations       Int
+  redemptions       Int
+  nav_net_all       Int
+  percent_dtd       Float
+  percent_wtd       Float
+  percent_mtd       Float
+  percent_ytd       Float
+  percent_itd       Float
+  is_published      Int
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model NdxWgNav {
+  id                Int      @id @default(autoincrement())
+  groupid           Int
+  work_date         DateTime
+  net_balances      Int
+  allocations       Int
+  redemptions       Int
+  nav_net_all       Int
+  percent_dtd       Float
+  percent_wtd       Float
+  percent_mtd       Float
+  percent_ytd       Float
+  percent_itd       Float
+  is_published      Int
+  notes             String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model PrfDstGross {
+  id                Int      @id @default(autoincrement())
+  work_dt           Int
+  dest_type         String
+  dest_id           Int
+  gross_av          Float
+  allocations       Float
+  redemptions       Float
+  growth_of_1000    Float
+  percent_dtd       Float
+  percent_wtd       Float
+  percent_mtd       Float
+  percent_ytd       Float
+  percent_itd       Float
+  is_model          Int
+  is_locked         Int
+  import_id         Int
+  username          String
+  timechanged       DateTime
+  currency          String
+  usdgrossbalance   Float
+  ext_code          String
+  is_smt_model      Int
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model RmSiteConfig {
+  id                Int      @id @default(autoincrement())
+  cat_id            Int
+  doc_id            Int
+  tmpl_id           Int
+  doc_name          String
+  doc_location      String
+  label             String
+  description       String
+  frm_action        String
+  is_active         String
+  is_navi           String
+  is_link           String
+  rank              Int
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model TrakkerRor {
+  id                Int      @id @default(autoincrement())
+  fund_id           String
+  yyyymmm           String
+  cur_value         Float
+  quarterly         Int
+  fund_status_code  String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model SeoPage {
+  id                Int      @id @default(autoincrement())
+  page              String
+  fund_id           String
+  label             String
+  sort_rank         Int
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model UserLoginTracking {
+  id                Int      @id @default(autoincrement())
+  uid               Int
+  ip                String
+  site              String
+  login_date        DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model Users {
+  id                Int      @id @default(autoincrement())
+  uid               Int
+  username          String
+  password          String
+  fullname          String
+  directory         String
+  is_active         Int
+  visible           Int
+  disclosure        Int
+  msg               String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model WebHfrIndices {
+  id                Int      @id @default(autoincrement())
+  trakker_fund_id   Int
+  rms_group_id      Int
+  rms_investor_id   Int
+  index_class       Int
+  index_type        String
+  reporting_interval    String
+  ticker            String
+  name              String
+  strategy          String
+  substrategy       String
+  region            String
+  emerging_markets  Int
+  concept_index     Int
+  currency          String
+  weighting         String
+  active_web        Int
+  active_dist       Int
+  sort_rank1        Int
+  sort_rank2        Int
+  daily_ror         Int
+  active_dist_bb    Int
+  sort_rank3        Int
+  product_id        Int
+  chinese_name      String
+  chinese_strategy  String
+  chinese_substrategy           String
+  chinese_region                String
+  chinese_reporting_interval    String
+  chinese_name_unicode          String
+  chinese_strategy_unicode      String
+  chinese_substrategy_unicode   String
+  chinese_region_unicode        String
+  chinese_reporting_interval_unicode    String
+  index_sub_type    String
+  index_location    String
+  asset_class       String
+  style             String
+  sub_style         String
+  gs_api            Int
+  status            String
+  fx_type           String
+  esma_id           String
+  gs_api_asset_id   String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model WebTemplates {
+  id                Int      @id @default(autoincrement())
+  template          String
+  short_description String
+  long_description  String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}

@@ -1,0 +1,22 @@
+{
+	"name": "hfr",
+	"logo": "",
+	"favicon": "",
+	"colors": {
+		"primary": "#3b83f4"
+	},
+	"topbarLinks": [],
+	"topbarCtaButton": {
+		"name": "Get Started",
+		"url": "/"
+	},
+	"anchors": [],
+	"navigation": [
+		{
+			"group": "Home",
+			"pages": [
+				"introduction"
+			]
+		}
+	]
+}

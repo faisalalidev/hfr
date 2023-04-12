@@ -1,0 +1,24 @@
+type Hfrindiceshfrp {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateHfrindiceshfrpInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateHfrindiceshfrpInput {
+  id: Int!
+}
+
+type Query {
+  hfrindiceshfrp: [Hfrindiceshfrp]!
+  hfrindiceshfrp(id: Int!): Hfrindiceshfrp
+}
+
+type Mutation {
+  createHfrindiceshfrp(createHfrindiceshfrpInput: CreateHfrindiceshfrpInput!): Hfrindiceshfrp!
+  updateHfrindiceshfrp(updateHfrindiceshfrpInput: UpdateHfrindiceshfrpInput!): Hfrindiceshfrp!
+  removeHfrindiceshfrp(id: Int!): Hfrindiceshfrp
+}

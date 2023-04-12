@@ -1,0 +1,24 @@
+type Hfrindiceshfri {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateHfrindiceshfriInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateHfrindiceshfriInput {
+  id: Int!
+}
+
+type Query {
+  hfrindiceshfri: [Hfrindiceshfri]!
+  hfrindiceshfri(id: Int!): Hfrindiceshfri
+}
+
+type Mutation {
+  createHfrindiceshfri(createHfrindiceshfriInput: CreateHfrindiceshfriInput!): Hfrindiceshfri!
+  updateHfrindiceshfri(updateHfrindiceshfriInput: UpdateHfrindiceshfriInput!): Hfrindiceshfri!
+  removeHfrindiceshfri(id: Int!): Hfrindiceshfri
+}

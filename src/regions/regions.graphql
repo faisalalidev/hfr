@@ -1,0 +1,42 @@
+type Region {
+    id: Int
+    fund_id: Int!
+    fund: String
+    region: String
+    allocation: Float
+    type: String
+    region_date: String
+    createdAt: String
+    updatedAt: String
+    funds: [Fund!]!
+}
+
+input CreateRegionInput {
+    fund_id: Int!
+    fund: String
+    region: String
+    allocation: Float
+    type: String
+    region_date: String
+}
+
+input UpdateRegionInput {
+  id: Int!
+  fund_id: Int!
+  fund: String
+  region: String
+  allocation: Float
+  type: String
+  region_date: String
+}
+
+type Query {
+  regions: [Region]!
+  region(id: Int!): Region
+}
+
+type Mutation {
+  createRegion(createRegionInput: CreateRegionInput!): Region!
+  updateRegion(updateRegionInput: UpdateRegionInput!): Region!
+  removeRegion(id: Int!): Region
+}

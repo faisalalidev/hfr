@@ -1,0 +1,24 @@
+type Dailyhfrxperformance {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateDailyhfrxperformanceInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateDailyhfrxperformanceInput {
+  id: Int!
+}
+
+type Query {
+  dailyhfrxperformance: [Dailyhfrxperformance]!
+  dailyhfrxperformance(id: Int!): Dailyhfrxperformance
+}
+
+type Mutation {
+  createDailyhfrxperformance(createDailyhfrxperformanceInput: CreateDailyhfrxperformanceInput!): Dailyhfrxperformance!
+  updateDailyhfrxperformance(updateDailyhfrxperformanceInput: UpdateDailyhfrxperformanceInput!): Dailyhfrxperformance!
+  removeDailyhfrxperformance(id: Int!): Dailyhfrxperformance
+}

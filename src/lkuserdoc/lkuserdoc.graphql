@@ -1,0 +1,24 @@
+type Lkuserdoc {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateLkuserdocInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateLkuserdocInput {
+  id: Int!
+}
+
+type Query {
+  lkuserdoc: [Lkuserdoc]!
+  lkuserdoc(id: Int!): Lkuserdoc
+}
+
+type Mutation {
+  createLkuserdoc(createLkuserdocInput: CreateLkuserdocInput!): Lkuserdoc!
+  updateLkuserdoc(updateLkuserdocInput: UpdateLkuserdocInput!): Lkuserdoc!
+  removeLkuserdoc(id: Int!): Lkuserdoc
+}

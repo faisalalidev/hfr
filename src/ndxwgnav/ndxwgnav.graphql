@@ -1,0 +1,24 @@
+type Ndxwgnav {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateNdxwgnavInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateNdxwgnavInput {
+  id: Int!
+}
+
+type Query {
+  ndxwgnav: [Ndxwgnav]!
+  ndxwgnav(id: Int!): Ndxwgnav
+}
+
+type Mutation {
+  createNdxwgnav(createNdxwgnavInput: CreateNdxwgnavInput!): Ndxwgnav!
+  updateNdxwgnav(updateNdxwgnavInput: UpdateNdxwgnavInput!): Ndxwgnav!
+  removeNdxwgnav(id: Int!): Ndxwgnav
+}

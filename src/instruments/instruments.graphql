@@ -1,0 +1,42 @@
+type Instrument {
+  id: Int
+  fund_id: Int!
+  fund: String
+  instrument: String
+  allocation: Float
+  type: String
+  instrument_date: String
+  createdAt: String
+  updatedAt: String
+  funds: [Fund!]!
+}
+
+input CreateInstrumentInput {
+  fund_id: Int!
+  fund: String
+  instrument: String
+  allocation: Float
+  type: String
+  instrument_date: String
+}
+
+input UpdateInstrumentInput {
+  id: Int!
+  fund_id: Int!
+  fund: String
+  instrument: String
+  allocation: Float
+  type: String
+  instrument_date: String
+}
+
+type Query {
+  instruments: [Instrument]!
+  instrument(id: Int!): Instrument
+}
+
+type Mutation {
+  createInstrument(createInstrumentInput: CreateInstrumentInput!): Instrument!
+  updateInstrument(updateInstrumentInput: UpdateInstrumentInput!): Instrument!
+  removeInstrument(id: Int!): Instrument
+}

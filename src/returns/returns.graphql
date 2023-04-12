@@ -1,0 +1,39 @@
+type Return {
+    id: Int
+    fund_id: Int!
+    fund: String
+    performance: Float
+    nav: Float
+    performance_date: String
+    createdAt: String
+    updatedAt: String
+    funds: [Fund!]!
+}
+
+input CreateReturnInput {
+    fund_id: Int!
+    fund: String
+    performance: Float
+    nav: Float
+    performance_date: String
+}
+
+input UpdateReturnInput {
+  id: Int!
+  fund_id: Int!
+  fund: String
+  performance: Float
+  nav: Float
+  performance_date: String
+}
+
+type Query {
+  returns: [Return]!
+  return(id: Int!): Return
+}
+
+type Mutation {
+  createReturn(createReturnInput: CreateReturnInput!): Return!
+  updateReturn(updateReturnInput: UpdateReturnInput!): Return!
+  removeReturn(id: Int!): Return
+}

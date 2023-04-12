@@ -1,0 +1,24 @@
+type Prfdstgross {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreatePrfdstgrossInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdatePrfdstgrossInput {
+  id: Int!
+}
+
+type Query {
+  prfdstgross: [Prfdstgross]!
+  prfdstgross(id: Int!): Prfdstgross
+}
+
+type Mutation {
+  createPrfdstgross(createPrfdstgrossInput: CreatePrfdstgrossInput!): Prfdstgross!
+  updatePrfdstgross(updatePrfdstgrossInput: UpdatePrfdstgrossInput!): Prfdstgross!
+  removePrfdstgross(id: Int!): Prfdstgross
+}

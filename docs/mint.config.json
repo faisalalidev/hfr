@@ -1,0 +1,65 @@
+{
+  "name": "hfrapi.com",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "api": {
+    "baseUrl": "https://winter-api.usewinter.com",
+    "authentication": { "type": "apiKey" }
+  },
+  "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#06C972",
+    "light": "#5EEBAC",
+    "dark": "#0DAC65",
+    "ultraLight": "#CFEFE1",
+    "ultraDark": "#047543"
+  },
+  "topbarLinks": [
+    {
+      "name": "Platforms",
+      "url": "https://www.usewinter.com/platform"
+    },
+    {
+      "name": "Pricing",
+      "url": "https://www.usewinter.com/pricing"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Contact Us",
+    "url": "mailto:sales@techoneplus.com"
+  },
+  "anchors": [
+    {
+      "name": "Try Demo",
+      "url": "https://www.usewinter.com/demo",
+      "icon": "circle-play",
+      "color": "#E233FF"
+    },
+    {
+      "name": "Community",
+      "url": "https://discord.gg/b9RR3RCq7X",
+      "icon": "discord",
+      "color": "#7289da"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Introduction",
+      "pages": ["get-started", "payment-methods"]
+    },
+    {
+      "group": "Smart Contracts",
+      "pages": ["multi-contract", "pre-fill"]
+    },
+    {
+      "group": "Platform API",
+      "pages": ["get-projects", "create-project"]
+    }
+  ],
+  "footerSocials": {
+    "discord": "https://discord.com/invite/b9RR3RCq7X",
+    "twitter": "https://twitter.com/winter_NFTs"
+  }
+}

@@ -1,0 +1,24 @@
+type Lkgroup {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateLkgroupInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateLkgroupInput {
+  id: Int!
+}
+
+type Query {
+  lkgroup: [Lkgroup]!
+  lkgroup(id: Int!): Lkgroup
+}
+
+type Mutation {
+  createLkgroup(createLkgroupInput: CreateLkgroupInput!): Lkgroup!
+  updateLkgroup(updateLkgroupInput: UpdateLkgroupInput!): Lkgroup!
+  removeLkgroup(id: Int!): Lkgroup
+}

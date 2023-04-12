@@ -1,0 +1,24 @@
+type Hfrifofsince2007 {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateHfrifofsince2007Input {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateHfrifofsince2007Input {
+  id: Int!
+}
+
+type Query {
+  hfrifofsince2007: [Hfrifofsince2007]!
+  hfrifofsince2007(id: Int!): Hfrifofsince2007
+}
+
+type Mutation {
+  createHfrifofsince2007(createHfrifofsince2007Input: CreateHfrifofsince2007Input!): Hfrifofsince2007!
+  updateHfrifofsince2007(updateHfrifofsince2007Input: UpdateHfrifofsince2007Input!): Hfrifofsince2007!
+  removeHfrifofsince2007(id: Int!): Hfrifofsince2007
+}

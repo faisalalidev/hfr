@@ -1,0 +1,32 @@
+# docker-compose.yml
+
+version: '3.8'
+services:
+  hfr_api_app:
+    build: .
+    depends_on:
+      - postgres
+    ports:
+      - ${PORT:-8080}:${PORT:-8080}
+    env_file:
+      - .env
+    networks:
+      - hfr_apis
+  postgres:
+    image: postgres:13.5
+    restart: always
+    environment:
+      - POSTGRES_USER=myuser
+      - POSTGRES_PASSWORD=mypassword
+      - POSTGRES_DB=hfr_db
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+    networks:
+      - hfr_apis
+volumes:
+  postgres:
+networks:
+  hfr_apis:
+    driver: bridge

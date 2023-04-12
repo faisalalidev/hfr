@@ -1,0 +1,24 @@
+type Webtemplate {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateWebtemplateInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateWebtemplateInput {
+  id: Int!
+}
+
+type Query {
+  webtemplates: [Webtemplate]!
+  webtemplate(id: Int!): Webtemplate
+}
+
+type Mutation {
+  createWebtemplate(createWebtemplateInput: CreateWebtemplateInput!): Webtemplate!
+  updateWebtemplate(updateWebtemplateInput: UpdateWebtemplateInput!): Webtemplate!
+  removeWebtemplate(id: Int!): Webtemplate
+}

@@ -1,0 +1,24 @@
+type Rmsiteconfig {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateRmsiteconfigInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateRmsiteconfigInput {
+  id: Int!
+}
+
+type Query {
+  rmsiteconfig: [Rmsiteconfig]!
+  rmsiteconfig(id: Int!): Rmsiteconfig
+}
+
+type Mutation {
+  createRmsiteconfig(createRmsiteconfigInput: CreateRmsiteconfigInput!): Rmsiteconfig!
+  updateRmsiteconfig(updateRmsiteconfigInput: UpdateRmsiteconfigInput!): Rmsiteconfig!
+  removeRmsiteconfig(id: Int!): Rmsiteconfig
+}

@@ -1,0 +1,24 @@
+type Seopage {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateSeopageInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateSeopageInput {
+  id: Int!
+}
+
+type Query {
+  seopage: [Seopage]!
+  seopage(id: Int!): Seopage
+}
+
+type Mutation {
+  createSeopage(createSeopageInput: CreateSeopageInput!): Seopage!
+  updateSeopage(updateSeopageInput: UpdateSeopageInput!): Seopage!
+  removeSeopage(id: Int!): Seopage
+}

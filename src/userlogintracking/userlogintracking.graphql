@@ -1,0 +1,24 @@
+type Userlogintracking {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateUserlogintrackingInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateUserlogintrackingInput {
+  id: Int!
+}
+
+type Query {
+  userlogintracking: [Userlogintracking]!
+  userlogintracking(id: Int!): Userlogintracking
+}
+
+type Mutation {
+  createUserlogintracking(createUserlogintrackingInput: CreateUserlogintrackingInput!): Userlogintracking!
+  updateUserlogintracking(updateUserlogintrackingInput: UpdateUserlogintrackingInput!): Userlogintracking!
+  removeUserlogintracking(id: Int!): Userlogintracking
+}

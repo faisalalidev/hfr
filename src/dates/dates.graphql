@@ -1,0 +1,24 @@
+type Date {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateDateInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateDateInput {
+  id: Int!
+}
+
+type Query {
+  dates: [Date]!
+  date(id: Int!): Date
+}
+
+type Mutation {
+  createDate(createDateInput: CreateDateInput!): Date!
+  updateDate(updateDateInput: UpdateDateInput!): Date!
+  removeDate(id: Int!): Date
+}

@@ -1,0 +1,36 @@
+type Hfrxconstituent {
+    id: Int
+    index_id: Int!
+    index_name: String
+    fund_id: Int!
+    fund: String
+    createdAt: String
+    updatedAt: String
+    funds: [Fund!]!
+}
+
+input CreateHfrxconstituentInput {
+  index_id: Int!
+  index_name: String
+  fund_id: Int!
+  fund: String
+}
+
+input UpdateHfrxconstituentInput {
+  id: Int!
+  index_id: Int!
+  index_name: String
+  fund_id: Int!
+  fund: String
+}
+
+type Query {
+  hfrxconstituents: [Hfrxconstituent]!
+  hfrxconstituent(id: Int!): Hfrxconstituent
+}
+
+type Mutation {
+  createHfrxconstituent(createHfrxconstituentInput: CreateHfrxconstituentInput!): Hfrxconstituent!
+  updateHfrxconstituent(updateHfrxconstituentInput: UpdateHfrxconstituentInput!): Hfrxconstituent!
+  removeHfrxconstituent(id: Int!): Hfrxconstituent
+}

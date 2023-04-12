@@ -1,0 +1,24 @@
+type Trakkernav {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateTrakkernavInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateTrakkernavInput {
+  id: Int!
+}
+
+type Query {
+  trakkernav: [Trakkernav]!
+  trakkernav(id: Int!): Trakkernav
+}
+
+type Mutation {
+  createTrakkernav(createTrakkernavInput: CreateTrakkernavInput!): Trakkernav!
+  updateTrakkernav(updateTrakkernavInput: UpdateTrakkernavInput!): Trakkernav!
+  removeTrakkernav(id: Int!): Trakkernav
+}

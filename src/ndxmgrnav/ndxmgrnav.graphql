@@ -1,0 +1,24 @@
+type Ndxmgrnav {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateNdxmgrnavInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateNdxmgrnavInput {
+  id: Int!
+}
+
+type Query {
+  ndxmgrnav: [Ndxmgrnav]!
+  ndxmgrnav(id: Int!): Ndxmgrnav
+}
+
+type Mutation {
+  createNdxmgrnav(createNdxmgrnavInput: CreateNdxmgrnavInput!): Ndxmgrnav!
+  updateNdxmgrnav(updateNdxmgrnavInput: UpdateNdxmgrnavInput!): Ndxmgrnav!
+  removeNdxmgrnav(id: Int!): Ndxmgrnav
+}

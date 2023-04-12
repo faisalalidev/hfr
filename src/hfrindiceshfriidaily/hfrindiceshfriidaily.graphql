@@ -1,0 +1,24 @@
+type Hfrindiceshfriidaily {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateHfrindiceshfriidailyInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateHfrindiceshfriidailyInput {
+  id: Int!
+}
+
+type Query {
+  hfrindiceshfriidaily: [Hfrindiceshfriidaily]!
+  hfrindiceshfriidaily(id: Int!): Hfrindiceshfriidaily
+}
+
+type Mutation {
+  createHfrindiceshfriidaily(createHfrindiceshfriidailyInput: CreateHfrindiceshfriidailyInput!): Hfrindiceshfriidaily!
+  updateHfrindiceshfriidaily(updateHfrindiceshfriidailyInput: UpdateHfrindiceshfriidailyInput!): Hfrindiceshfriidaily!
+  removeHfrindiceshfriidaily(id: Int!): Hfrindiceshfriidaily
+}
